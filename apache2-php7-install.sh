@@ -66,22 +66,36 @@ a2enmod mod-security
 echo -e "\n\n\n"
 echo "		Required Modules Enabled"
 echo -e "\n\n\n"
+
+# Increase post_max_size to 20 M
+sed -i 's/post_max_size = 8M/post_max_size = 20M/'  /etc/php/7.0/apache2/php.ini
+#Increase upload_max_size
+
+sed -i 's/upload_max_filesize = 2M/upload_max_filesize = 20M/'  /etc/php/7.0/apache2/php.ini
+#Increase KeepAliveTimeout
+sed -i 's/KeepAliveTimeout 5/KeepAliveTimeout 60/' /etc/apache2/apache2.conf
+
+
 # Making Apache Server Secure
-
-# Stop displaying Apache Version
-echo "ServerSignature Off" >> /etc/apache2/apache2.conf
-
-# Show servertoken as Apache
-echo "ServerTokens Prod" >> /etc/apache2/apache2.conf
 echo " Header set X-XSS-Protection "1; mode=block" " >> /etc/apache2/apache2.conf
 echo "Header always set X-Content-Type-Options "nosniff" " >>/etc/apache2/apache2.conf
 echo "Header always set Strict-Transport-Security "max-age=63072000;includeSubDomains"" >>/etc/apache2/apache2.conf
 
 # Stop Click JAcking
 echo "Header always append X-Frame-Options SAMEORIGIN" >> /etc/apache2/apache2.conf
+# Stop displaying Apache Version
+echo "ServerSignature Off" >> /etc/apache2/apache2.conf
+
+# Show servertoken as Apache
+echo "ServerTokens Prod" >> /etc/apache2/apache2.conf
+
+#Disable Etag
+echo "FileETag None" >>/etc/apache2/apache2.conf
+#Disable Trace
+echo " TraceEnable off" >>/etc/apache2/apache2.conf
 
 #Enable Directory permissions
-echo -e "<Directory /var/www/html> \n Options  FollowSymLinks\n AllowOverride all \n Require all granted \n </Directory>"  >> /etc/apache2/sites-enabled/000-default.conf
+#echo -e "<Directory /var/www/html> \n Options  FollowSymLinks\n AllowOverride all \n Require all granted \n </Directory>"  >> /etc/apache2/sites-enabled/000-default.conf
 
 echo " 			Restarting Apache "
 echo -e "\n\n\n"
@@ -146,3 +160,7 @@ echo "127.0.0.1 $hname" >> /etc/hosts
 
 # tell apache to use  localhost as Hostname
 echo "ServerName localhost" >> /etc/apache2/apache2.conf
+
+
+#install postfix
+apt-get install -y postfix
