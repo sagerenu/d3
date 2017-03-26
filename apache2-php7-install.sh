@@ -1,9 +1,10 @@
+#!/bin/bash
 if [ $UID -ne 0 ] ; then
 echo " 403 Error !!.  Please run me as root"
 exit
 fi
 
-#!/bin/bash
+
 echo "#################################################################################################################"
 echo "#                                                                                                               #"
 echo "# 		Welcome!! This script will  install php-backend eviroment                                     #"
@@ -114,7 +115,7 @@ echo -e " \n\n\n "
 echo " Please enter the name of user: "
 # Take input from user
 
-read usr_name
+ read usr_name
 
 # Create a directory for user
 
@@ -153,10 +154,10 @@ echo "Enter Hostname. To identify different servers i.e Dev,Qa,Satging, Producti
 # Get Hostname from user
 read hname
 
-hostnamectl set-hostname $hname
+hostnamectl set-hostname $h_name
 
 # Making enteries in /etc/hosts file
-echo "127.0.0.1 $hname" >> /etc/hosts
+echo "127.0.0.1 $h_name" >> /etc/hosts
 
 # tell apache to use  localhost as Hostname
 echo "ServerName localhost" >> /etc/apache2/apache2.conf
