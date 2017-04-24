@@ -1,2 +1,2 @@
 # shell-scripts
-Same scripts to implement DRY(Don't Repeat yourself)
+Some scripts to implement DRY(Don't Repeat yourself)
