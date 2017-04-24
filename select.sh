@@ -1,5 +1,5 @@
 # Select usage
-select result in Yes No Cancel
+select result in hello hi bye Cancel
 do
 	    echo $result
 	    break

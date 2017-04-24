@@ -1,3 +1,5 @@
+
+#!/bin/bash -x
 # GETTING INPUT FROM USER
 
 clear
