@@ -116,7 +116,7 @@ echo -e " \n\n\n "
 echo " Please enter the name of user: "
 # Take input from user
 
-usr_name=param
+usr_name=lvme
 
 # Create a directory for user
 
