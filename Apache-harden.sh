@@ -6,7 +6,7 @@ sed -i 's/KeepAliveTimeout 5/KeepAliveTimeout 60/' /etc/apache2/apache2.conf
 
 
 # Making Apache Server Secure
-echo " Header set X-XSS-Protection "1; mode=block" " >> /etc/apache2/apache2.conf
+echo ' Header set X-XSS-Protection "1; mode=block" ' >> /etc/apache2/apache2.conf
 echo "Header always set X-Content-Type-Options "nosniff" " >>/etc/apache2/apache2.conf
 echo 'Header always set Strict-Transport-Security "max-age=63072000;includeSubDomains"' >>/etc/apache2/apache2.conf
 
