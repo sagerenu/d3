@@ -23,10 +23,8 @@ echo "FileETag None" >>/etc/apache2/apache2.conf
 #Disable Trace
 echo " TraceEnable off" >>/etc/apache2/apache2.conf
 
-#Enable Directory permissions
-#echo -e "<Directory /var/www/html> \n Options  FollowSymLinks\n AllowOverride all \n Require all granted \n </Directory>"  >> /etc/apache2/sites-enabled/000-default.conf
 
 echo " 			Restarting Apache "
 echo -e "\n\n\n"
 
-systemctl restart apache2
+service apache2 restart
