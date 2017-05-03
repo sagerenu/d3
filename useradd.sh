@@ -13,12 +13,10 @@ echo " Please enter the name of user: "
 
 read usr_name
 
-# Create a directory for user
 
-mkdir -p /var/www/html/$usr_name
 
 # Make a new user and  set his Password
-useradd $usr_name -d /var/www/html/$usr_name -s /bin/bash
+useradd $usr_name -d /home/$usr_name -s /bin/bash
 
 chown -R $usr_name:$usr_name /home/$usr_name
 
