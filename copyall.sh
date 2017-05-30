@@ -1,0 +1,1 @@
+var output = ""; $.each($("a.item-name"), function(index,item){output += "\n" + $(item).attr("href");}); var copyFrom = $('<textarea/>'); copyFrom.css({ position: "absolute", left: "-1000px", top: "-1000px", }); copyFrom.text(output); $('body').append(copyFrom); copyFrom.select(); document.execCommand('copy');
