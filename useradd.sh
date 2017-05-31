@@ -14,11 +14,10 @@ echo " Please enter the name of user: "
 read usr_name
 
 
-
 # Make a new user and  set his Password
-useradd $usr_name -d /home/$usr_name -s /bin/bash
+useradd $usr_name -d /var/www/html/ -s /bin/bash
 
-chown -R $usr_name:$usr_name /home/$usr_name
+chown -R $usr_name:$usr_name /var/www/html/
 
 echo "$usr_name:$usr_name-123#@"|chpasswd
 
